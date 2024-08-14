@@ -6,17 +6,13 @@ const registerRout = require("./routes/register.js");
 const loginRout = require("./routes/login.js");
 
 app.use(bodyParser.urlencoded(({extended: true})));
+app.set("view engine", "ejs");
+
 app.use("/login", loginRout);
 app.use("/register", registerRout);
 
 app.all("/", (req, res) => {
-	res.send(`
-		<h1>Welcome</h1>
-		<p>What can we do for you?</p>
-
-		<a href="/register">Register</a>
-		<a href="/login">Login</a>
-	`);
+	res.render("index");
 });
 
 app.listen(3000, () => {

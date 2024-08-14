@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>	
+		<h1>Login</h1>
+
+		<% if (!userExists) { %>
+			<p>Username doesnt exist</p>
+			<a href="/login">Try again</a>
+		<% } %>
+
+		<% if (userExists && !passwordIsRight) { %>
+			<p>Wrong password</p>
+			<a href="/login">Try again</a>
+		<% } %>
+
+		<% if (userExists && passwordIsRight) { %>
+			<p>Username: <%= username %></p>
+			<a href="/">Home page</a>
+		<% } %>
+	</body>
+</html>
